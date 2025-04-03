@@ -5,12 +5,12 @@ pipeline {
         stage('Get Pods') {
             steps {
               script {
-                withkubeConfig([credentialsID: 'eks']) {
+                withKubeConfig([credentialsId: 'eks'] ) {
                   sh "kubectl get pod"
                   sh 'kubectl apply -f deployment.yml'     
                 }
               }  
-             }
+            }
          }
      }
 }
